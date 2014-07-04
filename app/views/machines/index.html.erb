@@ -20,8 +20,9 @@
         <td><%=l machine.created_at, format: :long %></td>
         <td><%= Geocoder::Calculations.distance_between(machine.coordinates, @office_center, :units => :km) * 1000 %></td>
         <td>
-          <%= link_to 'View', machine_path(machine), :class => 'btn btn-xs', :title => "View Machine Info" %>
-          <%= link_to 'Delete', machine_path(machine), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs', :title => "Delete" %>
+          <%= link_to 'View', machine_path(machine), :class => 'btn btn-primary btn-xs', :title => "View Machine Info" %>
+          <%= link_to 'Edit', edit_machine_path(machine), :class => 'btn btn-warning btn-xs', :title => "View Machine Info" %>
+          <%= link_to 'Delete', machine_path(machine), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-danger btn-xs', :title => "Delete" %>
         </td>
       </tr>
     <% end %>
