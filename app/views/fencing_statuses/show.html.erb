@@ -1,0 +1,11 @@
+<h1>Fencing Status for <%= link_to @machine.name, machines_path(@machine) %></h1>
+<br/>
+<br/>
+<p>
+  Mahcine Latitude/Longitude: <%= @machine.latitude %>, <%= @machine.longitude %>
+</p>
+<p>
+  Bangalore City Latitude/Longitude: <%= @bangalore_center %>
+  <br/>
+  Distance between the machine and bangalore center is : <%= @distance %> Km
+</p>
