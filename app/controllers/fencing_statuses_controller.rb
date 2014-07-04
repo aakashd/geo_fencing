@@ -3,7 +3,7 @@ class FencingStatusesController < ApplicationController
 
   def show
     @machine = Machine.find params[:machine_id]
-    @bangalore_center = [12.9667, 77.5667]
-    @distance = Geocoder::Calculations.distance_between(@machine.coordinates, @bangalore_center, :units => :km)
+    @office_center = [12.935198,77.614739]
+    @distance = Geocoder::Calculations.distance_between(@machine.coordinates, @office_center, :units => :km) * 1000
   end
 end
