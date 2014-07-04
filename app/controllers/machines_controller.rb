@@ -8,6 +8,7 @@ class MachinesController < ApplicationController
   # GET /machines.json
   def index
     @machines = Machine.all
+    @office_center = [12.935198,77.614739]
   end
 
   # GET /machines/1

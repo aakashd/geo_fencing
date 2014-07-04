@@ -8,7 +8,8 @@
       <th>ID</th>
       <th><%= model_class.human_attribute_name(:name) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
-      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+      <th>Distance From Office (meter)</th>
+      <th>Actions</th>
     </tr>
   </thead>
   <tbody>
@@ -17,14 +18,10 @@
         <td><%= machine.id %></td>
         <td><%= link_to machine.name, machine_path(machine) %></td>
         <td><%=l machine.created_at, format: :long %></td>
+        <td><%= Geocoder::Calculations.distance_between(machine.coordinates, @office_center, :units => :km) * 1000 %></td>
         <td>
-          <%= link_to machine_path(machine), :class => 'btn btn-xs', :title => "#{ t('.show', :default => t('helpers.links.show')) }" do %>
-            <%= glyph 'info-sign' %>
-            <%= glyph 'pencil' %>
-          <%- end -%>
-          <%= link_to machine_path(machine), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs', :title => "#{ t('.destroy', :default => t('helpers.links.destroy')) }" do %>
-            <%= glyph 'remove' %>
-          <%- end -%>
+          <%= link_to 'View', machine_path(machine), :class => 'btn btn-xs', :title => "View Machine Info" %>
+          <%= link_to 'Delete', machine_path(machine), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs', :title => "Delete" %>
         </td>
       </tr>
     <% end %>
