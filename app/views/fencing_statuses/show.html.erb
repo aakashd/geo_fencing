@@ -5,7 +5,7 @@
   Mahcine Latitude/Longitude: <%= @machine.latitude %>, <%= @machine.longitude %>
 </p>
 <p>
-  Blue Star office Latitude/Longitude: <%= @office_center %>
+  Blue Star office Latitude/Longitude: <%= @office_center.join(", ") %>
   <br/>
   Distance between the machine and the office is : <%= @distance %> Meters
 </p>
