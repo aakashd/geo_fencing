@@ -29,6 +29,7 @@ class MachinesController < ApplicationController
   # POST /machines.json
   def create
     @machine = Machine.new(machine_params)
+    @machine.user = current_user
 
     respond_to do |format|
       if @machine.save
